@@ -1,0 +1,13 @@
+[Unit]
+Description=Simple fans speed control daemon
+Wants=local-fs.target
+After=local-fs.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/simple_fansd/config
+ExecStart=/usr/local/bin/simple_fansd.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
